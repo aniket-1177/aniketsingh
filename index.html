@@ -306,6 +306,7 @@ h1.hero-name span{color:var(--cyan)}
 .edu-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:32px;backdrop-filter:blur(12px);transition:transform .3s,box-shadow .3s}
 .edu-card:hover{transform:translateY(-5px);box-shadow:var(--glow)}
 .edu-year{font-size:.72rem;letter-spacing:.15em;color:var(--cyan);margin-bottom:10px}
+.edu-icon{font-size:2.5rem;flex-shrink:0}
 .edu-card h3{font-family:'Oxanium',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:6px}
 .edu-card p{font-size:.855rem;color:var(--muted)}
 .edu-deg{font-size:.82rem;color:var(--text);margin-top:10px}
@@ -902,7 +903,7 @@ const CONFIG = {
     firstName:   "Aniket",
     lastName:    "Singh",
     title:       "Building intelligent systems at the intersection of ML & Production",
-    description: "ML Developer at Worldlink — crafting ASR pipelines, route optimization systems, and churn models that serve 1M+ customers. Specializing in deep learning, MLOps, and scalable AI infrastructure.",
+    description: "ML Developer — crafting ASR pipelines, route optimization systems, and churn models that serve 1M+ customers. Specializing in deep learning, MLOps, and scalable AI infrastructure.",
     buttons: [
       { label: "GitHub",     href: "https://github.com/aniket-1177",                     style: "primary", icon: "github" },
       { label: "LinkedIn ↗", href: "https://www.linkedin.com/in/aniket-singh-362069249/",style: "ghost",   icon: ""       },
@@ -927,7 +928,7 @@ const CONFIG = {
       { target: 3,     suffix: "",   label: "Companies"            },
       { target: 10,    suffix: "L+", label: "Customers Impacted"   },
       { target: 10000, suffix: "+",  label: "Data Points Annotated"},
-      { target: 88,    suffix: "%",  label: "Best AUC-ROC"         },
+      // { target: 88,    suffix: "%",  label: "Best AUC-ROC"         },
     ],
     /* Add a new job by copying one block and filling in your details */
     jobs: [
@@ -987,7 +988,14 @@ const CONFIG = {
       icon:  "🎓",
       title: "Student Performance Prediction",
       desc:  "Full MLOps project with automated data ingestion, model training pipelines, and Flask-based API. Demonstrates production-grade ML engineering practices.",
-      stack: ["Python", "Flask", "MLOps", "CI/CD"],
+      stack: ["Python", "Flask", "MLOps",],
+      link:  { label: "GitHub ↗", href: "https://github.com/aniket-1177/Iris-Classifier-ML-Pipeline" },
+    },
+    {
+      icon:  "🌸",
+      title: "Iris Classifier ML Pipeline",
+      desc:  "A production-grade machine learning pipeline showcasing professional MLOps practices: end-to-end training, experiment tracking, model versioning, REST inference, and containerisation. (Sklearn, MLflow, FastAPI, Docker, CI/CD, Modular) ",
+      stack: ["Python", "fastAPI", "MLflow", "Docker", "CI/CD"],
       link:  { label: "GitHub ↗", href: "https://github.com/aniket-1177/Student-Performance-Prediction-ML" },
     },
     {
@@ -1016,7 +1024,7 @@ const CONFIG = {
       title:     "Python AI/ML Project Code Walkthroughs",
       desc:      "Step-by-step video walkthroughs of end-to-end AI and ML projects in Python — covering data pipelines, model training, evaluation, and deployment.",
       cta:       "Watch Playlist",
-      href:      "https://www.youtube.com/playlist?list=PLVGnN2aG2ioMr3VHOSur5n1LLm1FAdc0",
+      href:      "https://www.youtube.com/playlist?list=PLVGnN2aG2ioMr3VHOSur5n1LLm1FAdc0_",
     },
     {
       type:      "website",
@@ -1047,12 +1055,14 @@ const CONFIG = {
   education: {
     degrees: [
       {
+        icon:   "🏫",
         institution: "Symbiosis International University",
         period:       "2020 — 2024",
         location:     "Pune, India",
         degree:       "B.Tech in Information Technology",
       },
       {
+        icon:   "🏛️",
         institution: "Cambridge A-Levels",
         period:       "2018 — 2020",
         location:     "Kathmandu, Nepal",
@@ -1061,7 +1071,7 @@ const CONFIG = {
     ],
     certifications: [
       {
-        icon:   "🏛️",
+        icon:   "📜",
         title:  "Information Technology Engineer",
         issuer: "Nepal Engineering Council · Reg No. 89779",
         link:   { label: "Verify Certificate ↗", href: "https://nec.gov.np/registration/89779?programName=Information%20Technology%20Engineering", style: "badge-ieee" },
@@ -1218,6 +1228,7 @@ function buildEducation() {
   document.getElementById('edu-grid').innerHTML = CONFIG.education.degrees.map(d =>
     `<div class="edu-card reveal">
        <div class="edu-year">${d.period}</div>
+      <div class="edu-icon">${d.icon}</div>
        <h3>${d.institution}</h3>
        <p>${d.location}</p>
        <p class="edu-deg">${d.degree}</p>
